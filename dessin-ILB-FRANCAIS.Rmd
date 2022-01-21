@@ -1,5 +1,5 @@
 ---
-title: "ILB-dessins"
+title: "ILB dessins (français)"
 author: "Arthur Charpentier"
 date: "2022"
 output: 
@@ -124,7 +124,7 @@ roc.curve.p=function(s,print=FALSE,i){
 
 # Figure 4.4
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-4, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=1:2)
 plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
      ylab="Taux de vrais positifs",type="l")
@@ -163,7 +163,7 @@ roc.curve=function(s,print=FALSE){
 
 # Figure 4.2
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-2, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=1:2)
 plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
      ylab="Taux de vrais positifs",type="l")
@@ -205,7 +205,7 @@ vv_12 = Vectorize(Taux_erreur_12)(vu)
 
 # Figure 4.8
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-8, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=1:2)
 plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
      ylab="Taux de vrais positifs",type="l")
@@ -230,7 +230,7 @@ text(a[3],b[3],"équitable",col=colr23[1],pos=3)
 
 # Figure 4.10
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-10, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=1:2)
 plot(vu,vv_12,type="s",ylim=c(0,.6),xlab="seuil",
      ylab="Taux d'erreur")
@@ -276,7 +276,7 @@ TPR2=function(s,print=FALSE){
 
 # Figure 4.13
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-13, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 VF = Vectorize(FPR2)(vu)
 plot(vu,VF[1,],type="s",col=colr2[1],ylab="Taux de faux positifs",
@@ -396,7 +396,7 @@ col4 = c("black",colr)
 
 # Figure 3.3 (1-2)
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-3-3-12, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 library(ellipse)
 plot(X1,X2,col=colr[2],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
@@ -436,7 +436,7 @@ polygon(c(xr[1],xr[2],xr[2]),c(yr[1],yr[2],yr[1])
 
 # Figure 3.3 (3-4)
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-3-3-34, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 ida = id2B
 plot(X1,X2,col=(colr[c(3,2)])[ida+1],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
@@ -638,7 +638,7 @@ C3 = C3[C3$TotalDriveDistance>100,]
 
 # Figure 2.1
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-2-1, fig.height = 5, fig.width = 10, fig.align = "center"}
 library("wesanderson")
 colr = wes_palette("Darjeeling1")
 colr2 = colr[c(5,1)]
@@ -693,7 +693,7 @@ sum(BASE2$Y==1)
 
 # Figure 2.2
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-2-2, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 
 id = (BASE2$G=="M")
@@ -815,7 +815,7 @@ lines(va,v,col=colr[1])
 
 # Figure 2.3
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-2-3, fig.height = 5, fig.width = 10, fig.align = "center"}
 library(mgcv)
 par(mfrow=c(1,2))
 
@@ -873,7 +873,7 @@ lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 
 # Figure 2.4
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-2-4, fig.height = 5, fig.width = 10, fig.align = "center"}
 library(mgcv)
 
 par(mfrow=c(1,2))
@@ -1206,7 +1206,7 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$Mediane/1000),
 
 # Figure 2.6 (1)
 
-```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+```{r Figure-ILB-2-6-1, fig.height = 5, fig.width = 8, fig.align = "center"}
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
        title = "Revenu (k€)",cex=.8,inset=.1,yjust=.5,bty="n")
@@ -1222,7 +1222,7 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$Pr_pop65P*100)
 
 # Figure 2.6 (2)
 
-```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+```{r Figure-ILB-2-6-2, fig.height = 5, fig.width = 8, fig.align = "center"}
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
        title = "Plus de 65 ans (%)",cex=.8,inset=.1,yjust=.5,bty="n")
@@ -1238,7 +1238,7 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$RP100_plus*100
 
 # Figure 2.6 (3)
 
-```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+```{r Figure-ILB-2-6-3, fig.height = 5, fig.width = 8, fig.align = "center"}
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
        title = expression("Plus de 100" * m^2* " (%)"),
@@ -1260,7 +1260,7 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$RP0_40*100),0)
 
 # Figure 2.6 (4)
 
-```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+```{r Figure-ILB-2-6-4, fig.height = 5, fig.width = 8, fig.align = "center"}
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
        title = expression("Moins de 40" * m^2* " (%)"),
@@ -1289,7 +1289,9 @@ i = c(312,513,734,841,1795,2136,2875,3272,3790,3904)
 vu = c(min(u2)-10,((u2[i]+u2[i][-1])/2)[1:9],max(u2)+10)
 ```
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+# Figure 1.2
+
+```{r Figure-ILB-1-2, fig.height = 5, fig.width = 10, fig.align = "center"}
 plot(u2,v2,type="l",col=colr2[1],lwd=3,ylim=c(-40,60),
      xlab=expression("Température ("*degree*F*")"),
      ylab=expression("Température ("*degree*C*")"))
@@ -1343,7 +1345,7 @@ lines(age,ys,col="darkgreen",lwd=2)
 
 # Figure 1.1
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-1-1, fig.height = 5, fig.width = 10, fig.align = "center"}
 library(rpart)
 T=rpart(Y~X+offset(log(E)),data=B, method="poisson", cp=.001)
 yt=predict(T,newdata=data.frame(X=age,E=1))
@@ -1384,7 +1386,7 @@ iF=which(cdfF>=cdfM[min(iM)])
 
 # Figure 4.22
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-22, fig.height = 5, fig.width = 10, fig.align = "center"}
 plot(dF,
      xlim=c(140,205),xlab="Taille (cm)",ylab="",lwd=3,col="white",
      main="")
@@ -1419,7 +1421,7 @@ montant = c(283319,251617,245508,239479,233532)
 
 # Figure 2.8 
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-2-8, fig.height = 5, fig.width = 10, fig.align = "center"}
 ## Plot first set of data and draw its axis
 par(mfrow=c(1,2))
 plot(1:5,montant/1000, axes=FALSE, ylim=c(200,300), 
@@ -1469,7 +1471,7 @@ max_y = max(cbind(vecv_y0_s0,vecv_y0_s1,vecv_y1_s0,vecv_y1_s1))+1
 
 # Figure 4.3
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-3, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 plot(vecu,vecv_y0_s0,ylim=c(0,max_y),type="l",axes=FALSE,
      xlab="Score s",ylab="")
@@ -1511,7 +1513,7 @@ text(b,.05,paste(round(100*b,1),"%",sep=""),pos=4,cex=.7)
 
 # Figure 4.6
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-6, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
      xlab="Score s (p=0)",ylab="")
@@ -1564,7 +1566,7 @@ segments(a,0,a,-1)
 
 # Figure 4.14
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r  Figure-ILB-4-14, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
      xlab="Score s (p=0)",ylab="")
@@ -1619,7 +1621,7 @@ segments(a,0,a,-1)
 
 # Figure 4.15
 
-```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
+```{r Figure-ILB-4-15, fig.height = 5, fig.width = 10, fig.align = "center"}
 par(mfrow=c(1,2))
 plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
      xlab="Score s (p=0)",ylab="")
@@ -1712,8 +1714,6 @@ u = seq(0,100,length=6001)
 v= predict(reg,newdata=data.frame(x=u))
 ```
 
-# Figure 1.2
-
 ```{r, fig.height = 5, fig.width = 10, fig.align = "center"}
 plot(Far,y,col="white",xlim=c(0,100),ylim=c(-25,45),
      xlab="Température (F)",ylab="Température (C)")
@@ -1730,5 +1730,72 @@ points(up,vp,pch=19)
 u2 = c(0,(up+diff(up)/2)[1:9],100)
 v2 = c(vp,vp[10])
 lines(u2,v2,type="s")
+```
+
+# Figure 4.5
+
+```{r Figure-ILB-4-5, fig.height = 5, fig.width = 10, fig.align = "center"}
+par(mfrow=c(1,2))
+plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
+     xlab="Score s (p=0)",ylab="")
+xi=which(vecu>=0.6)
+lines(vecu,vecv_y0_s0,col=colr2[2],type="l",lty=1)
+lines(vecu,vecv_y1_s0,col=colr2[2],type="l",lty=2)
+i=which.max(vecv_y0_s0)
+text(vecu[i],vecv_y0_s0[i],"y=1",col=colr2[2],pos=3,cex=.7)
+i=which.max(vecv_y1_s0)
+text(vecu[i],vecv_y1_s0[i],"y=0",col=colr2[2],pos=3,cex=.7)
+
+axis(1)
+segments(0.6,0,0.6,-1)
+# legend("topright",legend=c("y=0","y=1"),lwd=1,bty="n",lty=c(2,1),col=colr2[2])
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)+ pbeta(.6, a_y0_s0, b_y0_s0)) - (pbeta(t, a_y1_s1, b_y1_s1)+ pbeta(t, a_y0_s1, b_y0_s1))
+a = uniroot(f,lower=0,upper=1)$root
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)) - (pbeta(t, a_y1_s1, b_y1_s1))
+a = uniroot(f,lower=0,upper=1)$root
+
+plot(vecu,vecv_y0_s1,ylim=c(0,max_y),col=colr2[1],type="l",axes=FALSE,
+     xlab="Score s (p=1)",ylab="")
+xi=which(vecu>=a)
+lines(vecu,vecv_y0_s1,col=colr2[1],type="l",lty=1)
+lines(vecu,vecv_y1_s1,col=colr2[1],type="l",lty=2)
+i=which.max(vecv_y0_s1)
+text(vecu[i],vecv_y0_s1[i],"y=1",col=colr2[1],pos=3,cex=.7)
+i=which.max(vecv_y1_s1)
+text(vecu[i],vecv_y1_s1[i],"y=0",col=colr2[1],pos=3,cex=.7)
+axis(1)
+segments(a,0,a,-1)
+```
+
+# Figure 4.16
+
+```{r Figure-ILB-4-16, fig.height = 5, fig.width = 10, fig.align = "center"}
+par(mfrow=c(1,2))
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="Taux de faux positifs",
+     ylab="Taux de vrais positifs",col=colr2[1])
+points(b0,a0,pch=19,col=colr2[1])
+a1=1-pbeta(.6, a_y0_s1, b_y0_s1)
+b1=1-pbeta(.6, a_y1_s1, b_y1_s1)
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+points(b1,a1,pch=19,col=colr2[2])
+
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="Taux de faux positifs",
+     ylab="Taux de vrais positifs",col=colr2[1])
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+x1b=qbeta(1-b0, a_y1_s1, b_y1_s1)
+a1b=1-pbeta(x1b, a_y0_s1, b_y0_s1)
+segments(b0,a0,b0,a1b,col="grey")
+y1b=qbeta(1-a0, a_y0_s1, b_y0_s1)
+b1b=1-pbeta(y1b, a_y1_s1, b_y1_s1)
+segments(b0,a0,b1b,a0,col="grey")
+points(b0,a0,pch=19,col=colr2[1])
+points(b0,a1b,pch=19,col=colr2[2])
+points(b1b,a0,pch=19,col=colr2[2])
+points(b1,a1,pch=19,col="white")
+points(b1,a1,col=colr2[2])
 ```
 

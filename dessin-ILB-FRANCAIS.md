@@ -1,4 +1,4 @@
-ILB-dessins
+ILB dessins (français)
 ================
 Arthur Charpentier
 2022
@@ -18,6 +18,7 @@ Arthur Charpentier
 -   [Figure 2.6 (2)](#figure-26-2)
 -   [Figure 2.6 (3)](#figure-26-3)
 -   [Figure 2.6 (4)](#figure-26-4)
+-   [Figure 1.2](#figure-12)
 -   [Figure 1.1](#figure-11)
 -   [Figure 4.22](#figure-422)
 -   [Figure 2.8](#figure-28)
@@ -25,7 +26,8 @@ Arthur Charpentier
 -   [Figure 4.6](#figure-46)
 -   [Figure 4.14](#figure-414)
 -   [Figure 4.15](#figure-415)
--   [Figure 1.2](#figure-12)
+-   [Figure 4.5](#figure-45)
+-   [Figure 4.16](#figure-416)
 
 ``` r
 library(splines)
@@ -124,7 +126,7 @@ b1 = c(0,0.4444444,0.8888889,1,1)
 lines(a1,b1,col=colr2[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 roc.curve=function(s,print=FALSE){
@@ -169,7 +171,7 @@ abline(a=.5,b=10/14,col=colr23[2])
 points(a[3],b[3],col=colr23[2],pch=19)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 Taux_erreur_12 = function(s){
@@ -210,7 +212,7 @@ points(a[3],b[3],col=colr23[2],pch=19)
 text(a[3],b[3],"équitable",col=colr23[1],pos=3)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-8-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.10
 
@@ -234,7 +236,7 @@ expression("P("*hat(Y)*"=1|P=0) / P("*hat(Y)*"=1|P=1)"))
 abline(v=.4+1/48,lty=2)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-10-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -274,7 +276,7 @@ plot(vu,VT[1,],type="s",col=colr2[1],ylab="Taux de vrais positifs",
 lines(vu,VT[2,],type="s",col=colr2[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-13-1.png" style="display: block; margin: auto;" />
 
 ``` r
 S = 1:13
@@ -309,7 +311,7 @@ vv = c(0,pbeta(.11,.3,3),1)
 lines(vu,vv,col=colr2[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -331,7 +333,7 @@ vv = c(0,pbeta(.11,.5,3),1)
 lines(vu,vv,col=colr2[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -359,7 +361,7 @@ b=pbeta(.4,.2,1)/.4*a
 points(a,b,pch=19,col=colr23[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 ``` r
 set.seed(1)
@@ -427,7 +429,7 @@ polygon(c(xr[1],xr[2],xr[2]),c(yr[1],yr[2],yr[1])
         ,density=20,col=scales::alpha(colr[2],.6),border=NA)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-3-3-12-1.png" style="display: block; margin: auto;" />
 
 # Figure 3.3 (3-4)
 
@@ -474,7 +476,7 @@ polygon(c(xr[1],xr[2],xr[1]),c(yr[1],yr[2],yr[2])
         ,density=20,col=scales::alpha(colr[3],.6),border=NA)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-3-3-34-1.png" style="display: block; margin: auto;" />
 
 ``` r
 loc_fichier = "http://freakonometrics.free.fr/titanic.RData"
@@ -509,19 +511,19 @@ mosaicplot(M, gp = shading_hcl, gp_args = list(interpolate = c(1, 1.8)))
     ##     1.8))) :
     ##  extra arguments 'gp', 'gp_args' will be disregarded
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 ``` r
 mosaicplot(M, shade=TRUE)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-20-2.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-13-2.png" style="display: block; margin: auto;" />
 
 ``` r
 assoc(M,shade = TRUE)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-20-3.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-13-3.png" style="display: block; margin: auto;" />
 
 ``` r
 hist(age[survie==0],probability = TRUE,col=scales::alpha(colr[2],.4),
@@ -533,7 +535,7 @@ lines(density(age[survie==1],na.rm=TRUE),lwd=3,col=colr[3])
 legend("topright",c("décès","survie"),col=colr[2:3],lwd=3,bty="n")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 ``` r
 genre = titanic$gender
@@ -836,7 +838,7 @@ plot(C3$TotalDriveDistance[id],C3$age[id],
      ylim=c(18,65))
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(rpart)
@@ -1053,7 +1055,7 @@ legend("topleft","Hommes de moins de 25 ans",
        col=colr[3],lwd=1,bty="n",cex=.7)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-26-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 M=matrix(c(table(BASE2$Y[BASE2$G=="M"]),
@@ -1177,7 +1179,7 @@ v[i]=vpv[i]
 lines(va,v,col=colr[1])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-31-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
 
 ``` r
 pv = function(a){
@@ -1203,7 +1205,7 @@ v[i]=vpv[i]
 lines(va,v,col=colr[1])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
 
 # Figure 2.3
 
@@ -1263,7 +1265,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-34-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-3-1.png" style="display: block; margin: auto;" />
 
 # Figure 2.4
 
@@ -1324,7 +1326,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-35-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=c(1,2))
@@ -1380,7 +1382,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-36-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
 
 ``` r
 XF = BASE$age[BASE$sin==1]
@@ -1406,7 +1408,7 @@ legend("bottomright",
        col=colr[c(1,2)],pch=15,bty="n",cex=.7)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-36-2.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-25-2.png" style="display: block; margin: auto;" />
 
 ``` r
 library(readxl)
@@ -1692,7 +1694,7 @@ p_donnee@data<- left_join(p_donnee@data,df)
 plot(p_donnee)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-43-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-32-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library("wesanderson")
@@ -1721,7 +1723,7 @@ legend("topright", legend = legende, fill = palette,
 title("Revenu, Paris")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-45-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-6-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$Pr_pop65P*100, 9, 
@@ -1746,7 +1748,7 @@ legend("topright", legend = legende, fill = palette,
        title = "Plus de 65 ans (%)",cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-46-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-6-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$RP100_plus*100, 9, 
@@ -1772,7 +1774,7 @@ legend("topright", legend = legende, fill = palette,
 cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-47-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-6-3-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$RP0_40*100, 9, 
@@ -1801,7 +1803,7 @@ legend("topright", legend = legende, fill = palette,
        cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-49-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-6-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(wesanderson)
@@ -1845,6 +1847,8 @@ vu = c(min(u2)-10,((u2[i]+u2[i][-1])/2)[1:9],max(u2)+10)
     ## Warning in u2[i] + u2[i][-1]: longer object length is not a multiple of shorter
     ## object length
 
+# Figure 1.2
+
 ``` r
 plot(u2,v2,type="l",col=colr2[1],lwd=3,ylim=c(-40,60),
      xlab=expression("Température ("*degree*F*")"),
@@ -1855,7 +1859,7 @@ points(u2[i],v2[i],pch=19,cex=1.1,col=colr2[3])
 points(u2[i],v2[i],pch=1,cex=1.1,col=colr2[2])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-51-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-1-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 sinistre=read.table("http://freakonometrics.free.fr/sinistreACT2040.txt",
@@ -1899,7 +1903,7 @@ ys=predict(regs,newdata=data.frame(X=age,E=1),type="response")
 lines(age,ys,col="darkgreen",lwd=2)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-53-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-37-1.png" style="display: block; margin: auto;" />
 
 # Figure 1.1
 
@@ -1921,7 +1925,7 @@ points(22,100*(ys/y0-1)[401],col=colr2[1],pch=19)
 points(22,100*(yt/y0-1)[401],col="darkgreen",pch=19)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-54-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-1-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(wesanderson)
@@ -1967,7 +1971,7 @@ legend("topleft",c("Femmes","Hommes"),bty="n",
        col=colr2[c(1,4)],lwd=3)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-56-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-22-1.png" style="display: block; margin: auto;" />
 
 ``` r
 # ---- credit
@@ -2008,7 +2012,7 @@ text(1:4,prime[-5],paste("+",taux,"%",sep=""),
      col=rev(colr5),pos=4)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-58-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-2-8-1.png" style="display: block; margin: auto;" />
 
 ``` r
 a_y0_s0=4
@@ -2073,7 +2077,7 @@ text(b/2,a,paste(round(100*a,1),"%",sep=""),pos=3,cex=.7)
 text(b,.05,paste(round(100*b,1),"%",sep=""),pos=4,cex=.7)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-60-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-3-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.6
 
@@ -2128,7 +2132,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-61-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-6-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.14
 
@@ -2185,7 +2189,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-14-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.15
 
@@ -2242,7 +2246,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-63-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-15-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(splines)
@@ -2272,7 +2276,7 @@ points(age[id],y2[id],pch=19,col=clrpal4[2])
 points(age[id],y3[id],pch=19,col=clrpal4[3])
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-65-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-42-1.png" style="display: block; margin: auto;" />
 
 ``` r
 n = 100
@@ -2285,8 +2289,6 @@ reg = lm(y~bs(x,degree=36),data=b)
 u = seq(0,100,length=6001)
 v= predict(reg,newdata=data.frame(x=u))
 ```
-
-# Figure 1.2
 
 ``` r
 plot(Far,y,col="white",xlim=c(0,100),ylim=c(-25,45),
@@ -2312,4 +2314,75 @@ v2 = c(vp,vp[10])
 lines(u2,v2,type="s")
 ```
 
-<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-67-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/unnamed-chunk-44-1.png" style="display: block; margin: auto;" />
+
+# Figure 4.5
+
+``` r
+par(mfrow=c(1,2))
+plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
+     xlab="Score s (p=0)",ylab="")
+xi=which(vecu>=0.6)
+lines(vecu,vecv_y0_s0,col=colr2[2],type="l",lty=1)
+lines(vecu,vecv_y1_s0,col=colr2[2],type="l",lty=2)
+i=which.max(vecv_y0_s0)
+text(vecu[i],vecv_y0_s0[i],"y=1",col=colr2[2],pos=3,cex=.7)
+i=which.max(vecv_y1_s0)
+text(vecu[i],vecv_y1_s0[i],"y=0",col=colr2[2],pos=3,cex=.7)
+
+axis(1)
+segments(0.6,0,0.6,-1)
+# legend("topright",legend=c("y=0","y=1"),lwd=1,bty="n",lty=c(2,1),col=colr2[2])
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)+ pbeta(.6, a_y0_s0, b_y0_s0)) - (pbeta(t, a_y1_s1, b_y1_s1)+ pbeta(t, a_y0_s1, b_y0_s1))
+a = uniroot(f,lower=0,upper=1)$root
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)) - (pbeta(t, a_y1_s1, b_y1_s1))
+a = uniroot(f,lower=0,upper=1)$root
+
+plot(vecu,vecv_y0_s1,ylim=c(0,max_y),col=colr2[1],type="l",axes=FALSE,
+     xlab="Score s (p=1)",ylab="")
+xi=which(vecu>=a)
+lines(vecu,vecv_y0_s1,col=colr2[1],type="l",lty=1)
+lines(vecu,vecv_y1_s1,col=colr2[1],type="l",lty=2)
+i=which.max(vecv_y0_s1)
+text(vecu[i],vecv_y0_s1[i],"y=1",col=colr2[1],pos=3,cex=.7)
+i=which.max(vecv_y1_s1)
+text(vecu[i],vecv_y1_s1[i],"y=0",col=colr2[1],pos=3,cex=.7)
+axis(1)
+segments(a,0,a,-1)
+```
+
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-5-1.png" style="display: block; margin: auto;" />
+
+# Figure 4.16
+
+``` r
+par(mfrow=c(1,2))
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="Taux de faux positifs",
+     ylab="Taux de vrais positifs",col=colr2[1])
+points(b0,a0,pch=19,col=colr2[1])
+a1=1-pbeta(.6, a_y0_s1, b_y0_s1)
+b1=1-pbeta(.6, a_y1_s1, b_y1_s1)
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+points(b1,a1,pch=19,col=colr2[2])
+
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="Taux de faux positifs",
+     ylab="Taux de vrais positifs",col=colr2[1])
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+x1b=qbeta(1-b0, a_y1_s1, b_y1_s1)
+a1b=1-pbeta(x1b, a_y0_s1, b_y0_s1)
+segments(b0,a0,b0,a1b,col="grey")
+y1b=qbeta(1-a0, a_y0_s1, b_y0_s1)
+b1b=1-pbeta(y1b, a_y1_s1, b_y1_s1)
+segments(b0,a0,b1b,a0,col="grey")
+points(b0,a0,pch=19,col=colr2[1])
+points(b0,a1b,pch=19,col=colr2[2])
+points(b1b,a0,pch=19,col=colr2[2])
+points(b1,a1,pch=19,col="white")
+points(b1,a1,col=colr2[2])
+```
+
+<img src="dessin-ILB-FRANCAIS_files/figure-gfm/Figure-ILB-4-16-1.png" style="display: block; margin: auto;" />

@@ -1,4 +1,4 @@
-ILB pictures
+ILB pictures (english)
 ================
 Arthur Charpentier
 2022
@@ -18,6 +18,7 @@ Arthur Charpentier
 -   [Figure 2.6 (2)](#figure-26-2)
 -   [Figure 2.6 (3)](#figure-26-3)
 -   [Figure 2.6 (4)](#figure-26-4)
+-   [Figure 1.2](#figure-12)
 -   [Figure 1.1](#figure-11)
 -   [Figure 4.22](#figure-422)
 -   [Figure 2.8](#figure-28)
@@ -25,7 +26,8 @@ Arthur Charpentier
 -   [Figure 4.6](#figure-46)
 -   [Figure 4.14](#figure-414)
 -   [Figure 4.15](#figure-415)
--   [Figure 1.2](#figure-12)
+-   [Figure 4.5](#figure-45)
+-   [Figure 4.16](#figure-416)
 
 ``` r
 library(splines)
@@ -44,7 +46,7 @@ clrpal6 = wes_palette("Zissou1", 6, type = "continuous")
 ```
 
 ``` r
-df = read.csv("/Users/arthurcharpentier/Dropbox (Télécom SudParis)/backup_mac/cyclistsTempHKI.csv")
+df = read.csv("/Users/arthurcharpentier/Dropbox (Télécom SudParis)/backup_mac/cyclistsTempHKI.csv")
 dfts = cbind(C=ts(df$cyclists,start = c(2014, 1,2), frequency = 365), T=ts(df$meanTemp,start = c(2014, 1,2), frequency = 365))
 df0 = df
 n = nrow(df0)
@@ -54,8 +56,8 @@ df = data.frame(meanTemp = df0$meanTemp[1:(n-1)],
 
 ``` r
 par(mfrow=1:2)
-plot(df$meanTemp,df$cyclists,,xlab="Temperature (°C, day t)",
-     ylab="Daily number of cyclists (day t+1)",axes=FALSE,col=colr2[1],pch=19,cex=.7)
+plot(df$meanTemp,df$cyclists,,xlab="Température (°C, jour j)",
+     ylab="Nombre quotidien de cyclistes (jour j+1)",axes=FALSE,col=colr2[1],pch=19,cex=.7)
 axis(1)
 axis(2)  
 u=seq(-25,25,length=251)
@@ -66,8 +68,8 @@ lines(u,predict(reg,newdata=data.frame(meanTemp=u)),
 
 df = data.frame(meanTemp = df0$meanTemp[2:n],
                 cyclists = df0$cyclists[1:(n-1)])
-plot(df$cyclists,df$meanTemp,ylab="Temperature (°C, day t+1)",
-     xlab="Daily number of cyclists (day t)",axes=FALSE,col=colr2[1],pch=19,cex=.7)
+plot(df$cyclists,df$meanTemp,ylab="Température (°C, jour j+1)",
+     xlab="Nombre quotidien de cyclistes (jour j)",axes=FALSE,col=colr2[1],pch=19,cex=.7)
 axis(1)
 axis(2)  
 u=seq(0,25000,length=251)
@@ -111,8 +113,8 @@ lines(RC0[1,],RC0[2,],col=colr2[1])
 RC1 = Vectorize(function(s) roc.curve.p(s,i=which(P==1)))((0:1000)/1000)
 lines(RC1[1,],RC1[2,],col=colr2[2])
 
-plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
-     ylab="Taux de vrais positifs",type="l")
+plot(0:1,0:1,col="grey",xlab="False Positive Rate",
+     ylab="True Positive Rate",type="l")
 a0 = c(0,0,.3333333333,1)
 b0 = c(0,.8,1,1)
 lines(RC0[1,],RC0[2,],col=scales::alpha(colr2[1],.4))
@@ -124,7 +126,7 @@ b1 = c(0,0.4444444,0.8888889,1,1)
 lines(a1,b1,col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 roc.curve=function(s,print=FALSE){
@@ -145,8 +147,8 @@ roc.curve=function(s,print=FALSE){
 
 ``` r
 par(mfrow=1:2)
-plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
-     ylab="Taux de vrais positifs",type="l")
+plot(0:1,0:1,col="grey",xlab="False Positive Rate",
+     ylab="True Positive Rate",type="l")
 RC = Vectorize(function(s) roc.curve(s)$v)((0:1000)/1000)
 i=which(diff(RC[1,])<0)
 a=c(0,0,.1,.4,.5,.7,.8,1)
@@ -162,14 +164,14 @@ text(a[2],b[2],"A",col=colr23[1],pos=3)
 text(a[3],b[3],"B",col=colr23[1],pos=3)
 text(a[7],b[7],"C",col=colr23[1],pos=2)
 
-plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
-     ylab="Taux de vrais positifs",type="l")
+plot(0:1,0:1,col="grey",xlab="False Positive Rate",
+     ylab="True Positive Rate",type="l")
 lines(RC[1,],RC[2,],col=colr23[1])
 abline(a=.5,b=10/14,col=colr23[2])
 points(a[3],b[3],col=colr23[2],pch=19)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 Taux_erreur_12 = function(s){
@@ -189,8 +191,8 @@ vv_12 = Vectorize(Taux_erreur_12)(vu)
 
 ``` r
 par(mfrow=1:2)
-plot(0:1,0:1,col="grey",xlab="Taux de faux positif",
-     ylab="Taux de vrais positifs",type="l")
+plot(0:1,0:1,col="grey",xlab="False Positive Rate",
+     ylab="True Positive Rate",type="l")
 RC = Vectorize(function(s) roc.curve(s)$v)((0:1000)/1000)
 i=which(diff(RC[1,])<0)
 a=c(0,0,.1,.4,.5,.7,.8,1)
@@ -210,31 +212,31 @@ points(a[3],b[3],col=colr23[2],pch=19)
 text(a[3],b[3],"équitable",col=colr23[1],pos=3)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-8-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.10
 
 ``` r
 par(mfrow=1:2)
-plot(vu,vv_12,type="s",ylim=c(0,.6),xlab="seuil",
-     ylab="Taux d'erreur")
+plot(vu,vv_12,type="s",ylim=c(0,.6),xlab="Threshold",
+     ylab="Error rate")
 segments(vu,vv_1,vu,vv_12,col=scales::alpha(colr23[1],.2))
 segments(vu,vv_1,vu,rep(0,1001),col=scales::alpha(colr23[2],.2))
 lines(vu,vv_12,type="s")
-text(0,.15,"Faux positifs",col=colr23[2],pos=4)
-text(1,.15,"Faux négatifs",col=colr23[1],pos=2)
+text(0,.15,"False positive",col=colr23[2],pos=4)
+text(1,.15,"False negative",col=colr23[1],pos=2)
 abline(v=.6+1/48,lty=2)
 
 Taux_frac = function(s) mean(Y[(P==1)&(S>s)])/mean(Y[(P==0)&(S>s)])
 Taux_frac = function(s) sum((P==0)&(S>s))/sum((P==1)&(S>s))/sum(P==0)*sum(P==1)
 vv_0 = Vectorize(Taux_frac)(vu)
-plot(vu,vv_0,type="s",xlab="seuil",
+plot(vu,vv_0,type="s",xlab="Threshold",
      ylab=
 expression("P("*hat(Y)*"=1|P=0) / P("*hat(Y)*"=1|P=1)"))
 abline(v=.4+1/48,lty=2)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-10-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -264,17 +266,17 @@ TPR2=function(s,print=FALSE){
 ``` r
 par(mfrow=c(1,2))
 VF = Vectorize(FPR2)(vu)
-plot(vu,VF[1,],type="s",col=colr2[1],ylab="Taux de faux positifs",
-     xlab="Seuil")
+plot(vu,VF[1,],type="s",col=colr2[1],ylab="False Positive Rate",
+     xlab="Threshold")
 lines(vu,VF[2,],type="s",col=colr2[2])
 
 VT = Vectorize(TPR2)(vu)
-plot(vu,VT[1,],type="s",col=colr2[1],ylab="Taux de vrais positifs",
-     xlab="Seuil")
+plot(vu,VT[1,],type="s",col=colr2[1],ylab="True Positive Rate",
+     xlab="Threshold")
 lines(vu,VT[2,],type="s",col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-13-1.png" style="display: block; margin: auto;" />
 
 ``` r
 S = 1:13
@@ -309,7 +311,7 @@ vv = c(0,pbeta(.11,.3,3),1)
 lines(vu,vv,col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -331,7 +333,7 @@ vv = c(0,pbeta(.11,.5,3),1)
 lines(vu,vv,col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=1:2)
@@ -359,7 +361,7 @@ b=pbeta(.4,.2,1)/.4*a
 points(a,b,pch=19,col=colr23[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 ``` r
 set.seed(1)
@@ -392,7 +394,7 @@ col4 = c("black",colr)
 ``` r
 par(mfrow=c(1,2))
 library(ellipse)
-plot(X1,X2,col=colr[2],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
+plot(X1,X2,col=colr[2],xlab="GPA (0-100 scale)",ylab="SAT (0-100 scale)")
 df = data.frame(X1,X2)
 r <- princomp(df)
 p = prcomp(df)
@@ -404,9 +406,9 @@ a <- r$center[2] - b * r$center[1]
 xr = c(0,100)
 yr = a+b*xr
 segments(xr[1],yr[1],xr[2],yr[2],lwd=2,col=colr[2])
-text(-2.5,95,"population totale",pos=4,cex=.7,col=colr[2])
+text(-2.5,95,"Total population",pos=4,cex=.7,col=colr[2])
 ida = id3
-plot(X1,X2,col=(colr[c(3,2)])[id3+1],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
+plot(X1,X2,col=(colr[c(3,2)])[id3+1],xlab="GPA (0-100 scale)",ylab="SAT (0-100 scale)")
 df = data.frame(X1,X2)[ida,]
 r <- princomp(df)
 p = prcomp(df)
@@ -418,23 +420,23 @@ a <- r$center[2] - b * r$center[1]
 xr = c(35,100)
 yr = a+b*xr
 segments(xr[1],yr[1],xr[2],yr[2],lwd=2,col=colr[2])
-text(-2.5,95,"population admise",pos=4,cex=.7,col=colr[2])
-text(-2.5,88,"et inscrite",pos=4,cex=.7,col=colr[2])
-text(100,5,"population refusée",pos=2,cex=.7,col=colr[3])
+text(-2.5,95,"Admited",pos=4,cex=.7,col=colr[2])
+text(-2.5,88,"and registered",pos=4,cex=.7,col=colr[2])
+text(100,5,"Rejected",pos=2,cex=.7,col=colr[3])
 xr = c(20,110)
 yr = 120-1*xr
 polygon(c(xr[1],xr[2],xr[2]),c(yr[1],yr[2],yr[1])
         ,density=20,col=scales::alpha(colr[2],.6),border=NA)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-3-3-12-1.png" style="display: block; margin: auto;" />
 
 # Figure 3.3 (3-4)
 
 ``` r
 par(mfrow=c(1,2))
 ida = id2B
-plot(X1,X2,col=(colr[c(3,2)])[ida+1],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
+plot(X1,X2,col=(colr[c(3,2)])[ida+1],xlab="GPA (0-100 scale)",ylab="SAT (0-100 scale)")
 df = data.frame(X1,X2)[ida,]
 r <- princomp(df)
 p = prcomp(df)
@@ -446,15 +448,15 @@ a <- r$center[2] - b * r$center[1]
 xr = c(35,100)
 yr = a+b*xr
 segments(xr[1],yr[1],xr[2],yr[2],lwd=2,col=colr[2])
-text(-2.5,95,"population admise",pos=4,cex=.7,col=colr[2])
-text(100,5,"population refusée",pos=2,cex=.7,col=colr[3])
+text(-2.5,95,"Admitted",pos=4,cex=.7,col=colr[2])
+text(100,5,"Rejected",pos=2,cex=.7,col=colr[3])
 xr = c(20,110)
 yr = 120-1*xr
 polygon(c(xr[1],xr[2],xr[2]),c(yr[1],yr[2],yr[1])
         ,density=20,col=scales::alpha(colr[2],.6),border=NA)
 
 ida = id1B
-plot(X1,X2,col=(colr[c(3,2)])[ida+1],xlab="GPA (échelle 0-100)",ylab="SAT (échelle 0-100)")
+plot(X1,X2,col=(colr[c(3,2)])[ida+1],xlab="GPA (0-100 scale)",ylab="SAT (0-100 scale)")
 df = data.frame(X1,X2)[ida,]
 r <- princomp(df)
 p = prcomp(df)
@@ -466,15 +468,15 @@ a <- r$center[2] - b * r$center[1]
 xr = c(35,100)
 yr = a+b*xr
 segments(xr[1],yr[1],xr[2],yr[2],lwd=2,col=colr[2])
-text(-2.5,95,"population visible",pos=4,cex=.7,col=colr[2])
-text(100,5,"population invisible",pos=2,cex=.7,col=colr[3])
+text(-2.5,95,"visible",pos=4,cex=.7,col=colr[2])
+text(100,5,"invisible",pos=2,cex=.7,col=colr[3])
 xr = c(-10,110)
 yr = 60-1*xr
 polygon(c(xr[1],xr[2],xr[1]),c(yr[1],yr[2],yr[2])
         ,density=20,col=scales::alpha(colr[3],.6),border=NA)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-3-3-34-1.png" style="display: block; margin: auto;" />
 
 ``` r
 loc_fichier = "http://freakonometrics.free.fr/titanic.RData"
@@ -509,19 +511,19 @@ mosaicplot(M, gp = shading_hcl, gp_args = list(interpolate = c(1, 1.8)))
     ##     1.8))) :
     ##  extra arguments 'gp', 'gp_args' will be disregarded
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 ``` r
 mosaicplot(M, shade=TRUE)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-20-2.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-13-2.png" style="display: block; margin: auto;" />
 
 ``` r
 assoc(M,shade = TRUE)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-20-3.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-13-3.png" style="display: block; margin: auto;" />
 
 ``` r
 hist(age[survie==0],probability = TRUE,col=scales::alpha(colr[2],.4),
@@ -533,7 +535,7 @@ lines(density(age[survie==1],na.rm=TRUE),lwd=3,col=colr[3])
 legend("topright",c("décès","survie"),col=colr[2:3],lwd=3,bty="n")
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 ``` r
 genre = titanic$gender
@@ -822,21 +824,21 @@ colr2 = colr[c(5,1)]
 par(mfrow=c(1,2))
 id = which(C3$insured_gender == "M")
 plot(C3$TotalDriveDistance[id],C3$age[id],
-     xlab="Nombre de km parcourus en 2019 (Hommes)",
-     ylab="âge au 1er janvier 2019",
+     xlab="Number of km driven in 2019 (Men)",
+     ylab="Age (at January 1st 2019)",
      col=colr2[1+(C3$sin[id]>0)],
      cex=.7,xlim=c(0,52000),
      ylim=c(18,65))
 id = which(C3$insured_gender == "F")
 plot(C3$TotalDriveDistance[id],C3$age[id],
-     xlab="Nombre de km parcourus en 2019 (Femmes)",
-     ylab="âge au 1er janvier 2019",
+     xlab="Number of km driven in 2019 (Women)",
+     ylab="Age (at January 1st 2019)",
      col=colr2[1+(C3$sin[id]>0)],
      cex=.7,xlim=c(0,52000),
      ylim=c(18,65))
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(rpart)
@@ -1031,10 +1033,10 @@ n2 = sum(id==0)
 u1 = (0:n1)  
 u2 = (0:n2)
 plot(u1/n1*100,n1/100*dbinom(u1,size = n1,prob = p1),xlim=c(0,30),type="s",col=colr[3],
-     xlab="Proportion du portefeuille sinistré (%)",ylab="",ylim=c(0,.387),axes=FALSE)
+     xlab="Proportion of portfolio claiming (%)",ylab="",ylim=c(0,.387),axes=FALSE)
 axis(1)
 lines(u2/n2*100,n2/100*dbinom(u2,size = n2,prob = p2),type="s",col=colr[2])
-legend("topleft","Hommes",
+legend("topleft","Men",
        col=colr[3],lwd=1,bty="n",cex=.7)
 
 id = (BASE2$G=="M")&(BASE2$A!="(25,100]")
@@ -1046,14 +1048,14 @@ u1 = (0:n1)
 u2 = (0:n2)
 plot(u1/n1*100,n1/100*dbinom(u1,size = n1,prob = p1),xlim=c(0,30),
      type="s",col=colr[3],
-     xlab="Proportion du portefeuille sinistré (%)",ylab="",ylim=c(0,.387),axes=FALSE)
+     xlab="Proportion of portfolio claiming (%)",ylab="",ylim=c(0,.387),axes=FALSE)
 axis(1)
 lines(u2/n2*100,n2/100*dbinom(u2,size = n2,prob = p2),type="s",col=colr[2])
-legend("topleft","Hommes de moins de 25 ans",
+legend("topleft","Men, less than 25",
        col=colr[3],lwd=1,bty="n",cex=.7)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-26-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 M=matrix(c(table(BASE2$Y[BASE2$G=="M"]),
@@ -1177,7 +1179,7 @@ v[i]=vpv[i]
 lines(va,v,col=colr[1])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-31-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
 
 ``` r
 pv = function(a){
@@ -1203,7 +1205,7 @@ v[i]=vpv[i]
 lines(va,v,col=colr[1])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
 
 # Figure 2.3
 
@@ -1225,7 +1227,7 @@ pF <- predict(regF, newdata=data.frame(age=va),
 uprF <- pF$fit + (2 * pF$se.fit)
 lwrF <- pF$fit - (2 * pF$se.fit)
 plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="xx",
-     ylab="probabilité d'accident (en %)",axes=FALSE)
+     ylab="Claim probability (in %)",axes=FALSE)
 axis(1)
 axis(2)
 abline(v=c(21,26),col="grey")
@@ -1235,7 +1237,7 @@ lines(va,pH$fit*100 ,lwd=2,col=colr[3])
 polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
         col=scales::alpha(colr[2],.4),border=NA)
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
-legend("topright",c("Hommes","Femmes"),
+legend("topright",c("Men","Women"),
        col=colr[c(3,2)],pch=15,bty="n",cex=.7)
 
 regH = gam(sin ~ s(age), data=BASE, subset = BASE$insured_gender=="M",
@@ -1251,8 +1253,8 @@ pF <- predict(regF, newdata=data.frame(age=va),
               type = "response", se.fit = TRUE)
 uprF <- pF$fit + (2 * pF$se.fit)
 lwrF <- pF$fit - (2 * pF$se.fit)
-plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="Nombre de km parcourus en 2019",
-     ylab="probabilité d'accident (en %)",axes=FALSE)
+plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="Number of km driven in 2019",
+     ylab="Claim probability (in %)",axes=FALSE)
 axis(1)
 axis(2)
 polygon(c(va,rev(va)),c(uprH,rev(lwrH))*100,
@@ -1263,7 +1265,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-34-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-3-1.png" style="display: block; margin: auto;" />
 
 # Figure 2.4
 
@@ -1285,8 +1287,8 @@ pF <- predict(regF, newdata=data.frame(TotalDriveDistance=va),
               type = "response", se.fit = TRUE)
 uprF <- pF$fit + (2 * pF$se.fit)
 lwrF <- pF$fit - (2 * pF$se.fit)
-plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="Nombre de km parcourus en 2019",
-     ylab="probabilité d'accident (en %)",axes=FALSE,log="x")
+plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="Number of km driven in 2019",
+     ylab="Claim probability (in %)",axes=FALSE,log="x")
 axis(1)
 axis(2)
 abline(v=c(1e4,2e4),col="grey")
@@ -1296,7 +1298,7 @@ lines(va,pH$fit*100 ,lwd=2,col=colr[3])
 polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
         col=scales::alpha(colr[2],.4),border=NA)
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
-legend("topleft",c("Hommes","Femmes"),
+legend("topleft",c("Men","Women"),
        col=colr[c(3,2)],pch=15,bty="n",cex=.7)
 
 regH = gam(sin ~ s((TotalDriveDistance)), data=BASE, subset = BASE$insured_gender=="M",
@@ -1313,7 +1315,7 @@ pF <- predict(regF, newdata=data.frame(TotalDriveDistance=va),
 uprF <- pF$fit + (2 * pF$se.fit)
 lwrF <- pF$fit - (2 * pF$se.fit)
 plot(va,pH$fit*100,ylim=c(0,.3)*100,col="white",xlab="",
-     ylab="probabilité d'accident (en %)",axes=FALSE,log="x")
+     ylab="claim probability (in %)",axes=FALSE,log="x")
 axis(1)
 axis(2)
 polygon(c(va,rev(va)),c(uprH,rev(lwrH))*100,
@@ -1324,7 +1326,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-35-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 par(mfrow=c(1,2))
@@ -1380,7 +1382,7 @@ polygon(c(va,rev(va)),c(uprF,rev(lwrF))*100,
 lines(va,pF$fit*100 ,lwd=2,col=colr[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-36-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
 
 ``` r
 XF = BASE$age[BASE$sin==1]
@@ -1406,7 +1408,7 @@ legend("bottomright",
        col=colr[c(1,2)],pch=15,bty="n",cex=.7)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-36-2.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-25-2.png" style="display: block; margin: auto;" />
 
 ``` r
 library(readxl)
@@ -1692,7 +1694,7 @@ p_donnee@data<- left_join(p_donnee@data,df)
 plot(p_donnee)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-43-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-32-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library("wesanderson")
@@ -1717,11 +1719,11 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$Mediane/1000),
 ``` r
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
-       title = "Revenu (k€)",cex=.8,inset=.1,yjust=.5,bty="n")
-title("Revenu, Paris")
+       title = "Income (k€)",cex=.8,inset=.1,yjust=.5,bty="n")
+title("Income, Paris")
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-45-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-6-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$Pr_pop65P*100, 9, 
@@ -1743,10 +1745,10 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$Pr_pop65P*100)
 ``` r
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
-       title = "Plus de 65 ans (%)",cex=.8,inset=.1,yjust=.5,bty="n")
+       title = "More than 65 (%)",cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-46-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-6-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$RP100_plus*100, 9, 
@@ -1768,11 +1770,11 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$RP100_plus*100
 ``` r
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
-       title = expression("Plus de 100" * m^2* " (%)"),
+       title = expression("More than 100" * m^2* " (%)"),
 cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-47-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-6-3-1.png" style="display: block; margin: auto;" />
 
 ``` r
 classTemps <- classIntervals(p_donnee@data$RP0_40*100, 9, 
@@ -1797,11 +1799,11 @@ legende <- as.character(levels(cut(round(as.numeric(p_donnee@data$RP0_40*100),0)
 ``` r
 plot(p_donnee, col = p_donnee@data$Mediane_cat, border = "black")
 legend("topright", legend = legende, fill = palette, 
-       title = expression("Moins de 40" * m^2* " (%)"),
+       title = expression("Less than 40" * m^2* " (%)"),
        cex=.8,inset=.1,yjust=.5,bty="n")
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-49-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-6-4-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(wesanderson)
@@ -1845,17 +1847,19 @@ vu = c(min(u2)-10,((u2[i]+u2[i][-1])/2)[1:9],max(u2)+10)
     ## Warning in u2[i] + u2[i][-1]: longer object length is not a multiple of shorter
     ## object length
 
+# Figure 1.2
+
 ``` r
 plot(u2,v2,type="l",col=colr2[1],lwd=3,ylim=c(-40,60),
-     xlab=expression("Température ("*degree*F*")"),
-     ylab=expression("Température ("*degree*C*")"))
+     xlab=expression("Temperature ("*degree*F*")"),
+     ylab=expression("Temperature ("*degree*C*")"))
 lines(vu,c(v2[i],max(v2[i])),type="s",col=colr2[4],lwd=3)
 abline(a=-32*5/9,b=5/9,lwd=3,col=colr2[2])
 points(u2[i],v2[i],pch=19,cex=1.1,col=colr2[3])
 points(u2[i],v2[i],pch=1,cex=1.1,col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-51-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-1-2-1.png" style="display: block; margin: auto;" />
 
 ``` r
 sinistre=read.table("http://freakonometrics.free.fr/sinistreACT2040.txt",
@@ -1899,7 +1903,7 @@ ys=predict(regs,newdata=data.frame(X=age,E=1),type="response")
 lines(age,ys,col="darkgreen",lwd=2)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-53-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-37-1.png" style="display: block; margin: auto;" />
 
 # Figure 1.1
 
@@ -1908,8 +1912,8 @@ library(rpart)
 T=rpart(Y~X+offset(log(E)),data=B, method="poisson", cp=.001)
 yt=predict(T,newdata=data.frame(X=age,E=1))
 plot(age,100*(y/y0-1),type='l',lwd=3,ylim=c(-20,120),col="white",
-     xlab="Age du conducteur principal",
-     ylab="Différence relative (%)")
+     xlab="Age of main driver",
+     ylab="Relative difference (%)")
 abline(h=0,col="grey")
 lines(age,100*(y/y0-1),lwd=3,col=colr2[2])
 lines(age,100*(y1/y0-1),col=colr2[3],lwd=2)
@@ -1921,7 +1925,7 @@ points(22,100*(ys/y0-1)[401],col=colr2[1],pch=19)
 points(22,100*(yt/y0-1)[401],col="darkgreen",pch=19)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-54-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-1-1-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(wesanderson)
@@ -1947,7 +1951,7 @@ iF=which(cdfF>=cdfM[min(iM)])
 
 ``` r
 plot(dF,
-     xlim=c(140,205),xlab="Taille (cm)",ylab="",lwd=3,col="white",
+     xlim=c(140,205),xlab="Height (cm)",ylab="",lwd=3,col="white",
      main="")
 polygon(c(dM$x[iM],190),c(dM$y[iM],0),
         col=scales::alpha(colr2[2],.4),
@@ -1963,11 +1967,11 @@ lines(dM,lwd=3,col=colr2[4])
 arrows(190,.07,dF$x[min(iF)],.07,length=.1)
 abline(v=190,col=colr2[2])
 abline(v=dF$x[min(iF)],col=colr2[3])
-legend("topleft",c("Femmes","Hommes"),bty="n",
+legend("topleft",c("Women","Men"),bty="n",
        col=colr2[c(1,4)],lwd=3)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-56-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-22-1.png" style="display: block; margin: auto;" />
 
 ``` r
 # ---- credit
@@ -1990,7 +1994,7 @@ plot(1:5,montant/1000, axes=FALSE, ylim=c(200,300),
      main="",pch=19,type="h",xlim=c(0.9,5.5))
 points(1:5,montant/1000, pch=19,cex=1.3,col=rev(colr5),)
 axis(2, col="black",las=1)  ## las=1 makes horizontal labels
-mtext("Montant crédit ('000 $)",side=2,line=2.5)
+mtext("Amount credit ('000 $)",side=2,line=2.5)
 text(1:5+.2,rep(300,5),nom, col=rev(colr5))
 text(1:5,montant/1000,paste(taux,"%",sep=""), 
      col=rev(colr5),pos=4)
@@ -2002,13 +2006,13 @@ plot(1:5,prime, axes=FALSE, ylim=c(1200,2800),
      main="",pch=19,type="h",xlim=c(0.9,5.5))
 points(1:5,prime, pch=19,cex=1.3,col=rev(colr5),)
 axis(2, col="black",las=1)  ## las=1 makes horizontal labels
-mtext("Prime d'assurance ($)",side=4,line=.5)
+mtext("Insurance premium ($)",side=4,line=.5)
 text(1:5+.2,rep(2800,5),nom, col=rev(colr5))
 text(1:4,prime[-5],paste("+",taux,"%",sep=""), 
      col=rev(colr5),pos=4)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-58-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-2-8-1.png" style="display: block; margin: auto;" />
 
 ``` r
 a_y0_s0=4
@@ -2064,8 +2068,8 @@ a=.6
 
 a=1-pbeta(.6, a_y0_s0, b_y0_s0)
 b=1-pbeta(.6, a_y1_s0, b_y1_s0)
-plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="Taux de faux positifs",
-     ylab="Taux de vrais positifs")
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="False Positive Rate",
+     ylab="True Positive Rate")
 segments(b,0,b,a,col="grey")
 segments(0,a,b,a,col="grey")
 points(b,a,pch=19)
@@ -2073,7 +2077,7 @@ text(b/2,a,paste(round(100*a,1),"%",sep=""),pos=3,cex=.7)
 text(b,.05,paste(round(100*b,1),"%",sep=""),pos=4,cex=.7)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-60-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-3-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.6
 
@@ -2128,7 +2132,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-61-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-6-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.14
 
@@ -2185,7 +2189,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-14-1.png" style="display: block; margin: auto;" />
 
 # Figure 4.15
 
@@ -2242,7 +2246,7 @@ axis(1)
 segments(a,0,a,-1)
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-63-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-15-1.png" style="display: block; margin: auto;" />
 
 ``` r
 library(splines)
@@ -2261,20 +2265,6 @@ y3 = (py3/py0-1)*100
 ```
 
 ``` r
-plot(age,y1,type="l",xlab="Age du conducteur principal",ylab="Différence relative (%)",ylim=c(-20,120),col="white")
-abline(h=0,col="gray")
-lines(age,y1,lwd=3,col=clrpal4[1])
-lines(age,y2,lwd=3,col=clrpal4[2])
-lines(age,y3,lwd=3,col=clrpal4[3])
-id = which(age == 22)
-points(age[id],y1[id],pch=19,col=clrpal4[1])
-points(age[id],y2[id],pch=19,col=clrpal4[2])
-points(age[id],y3[id],pch=19,col=clrpal4[3])
-```
-
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-65-1.png" style="display: block; margin: auto;" />
-
-``` r
 n = 100
 set.seed(1)
 Far = runif(n)*160-30
@@ -2286,21 +2276,19 @@ u = seq(0,100,length=6001)
 v= predict(reg,newdata=data.frame(x=u))
 ```
 
-# Figure 1.2
-
 ``` r
 plot(Far,y,col="white",xlim=c(0,100),ylim=c(-25,45),
-     xlab="Température (F)",ylab="Température (C)")
-lines(u,v)
-abline(a=-32*5/9,b=5/9)
+     xlab="Temperature (F)",ylab="Temperature (C)")
+lines(u,v,col=colr2[3])
+
 u = seq(0,100,length=60001)
 v= predict(reg,newdata=data.frame(x=u))
+abline(a=-32*5/9,b=5/9)
 v0=-32*5/9+5/9*u
 idx=which(abs(v0-v)<.01)
 id = c(idx[which(diff(idx)>1)],max(idx))
 up=u[id]-50/60001
 vp=-32*5/9+5/9*up
-points(up,vp,pch=19)
 u2 = c(0,(up+diff(up)/2)[1:9],100)
 ```
 
@@ -2309,7 +2297,79 @@ u2 = c(0,(up+diff(up)/2)[1:9],100)
 
 ``` r
 v2 = c(vp,vp[10])
-lines(u2,v2,type="s")
+lines(u2,v2,type="s",colr2[4])
+points(up,vp,pch=19,col=colr2[2])
 ```
 
-<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-67-1.png" style="display: block; margin: auto;" />
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/unnamed-chunk-43-1.png" style="display: block; margin: auto;" />
+
+# Figure 4.5
+
+``` r
+par(mfrow=c(1,2))
+plot(vecu,vecv_y0_s0,ylim=c(0,max_y),col=colr2[2],type="l",axes=FALSE,
+     xlab="Score s (p=0)",ylab="")
+xi=which(vecu>=0.6)
+lines(vecu,vecv_y0_s0,col=colr2[2],type="l",lty=1)
+lines(vecu,vecv_y1_s0,col=colr2[2],type="l",lty=2)
+i=which.max(vecv_y0_s0)
+text(vecu[i],vecv_y0_s0[i],"y=1",col=colr2[2],pos=3,cex=.7)
+i=which.max(vecv_y1_s0)
+text(vecu[i],vecv_y1_s0[i],"y=0",col=colr2[2],pos=3,cex=.7)
+
+axis(1)
+segments(0.6,0,0.6,-1)
+# legend("topright",legend=c("y=0","y=1"),lwd=1,bty="n",lty=c(2,1),col=colr2[2])
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)+ pbeta(.6, a_y0_s0, b_y0_s0)) - (pbeta(t, a_y1_s1, b_y1_s1)+ pbeta(t, a_y0_s1, b_y0_s1))
+a = uniroot(f,lower=0,upper=1)$root
+f = function(t) (pbeta(.6, a_y1_s0, b_y1_s0)) - (pbeta(t, a_y1_s1, b_y1_s1))
+a = uniroot(f,lower=0,upper=1)$root
+
+plot(vecu,vecv_y0_s1,ylim=c(0,max_y),col=colr2[1],type="l",axes=FALSE,
+     xlab="Score s (p=1)",ylab="")
+xi=which(vecu>=a)
+lines(vecu,vecv_y0_s1,col=colr2[1],type="l",lty=1)
+lines(vecu,vecv_y1_s1,col=colr2[1],type="l",lty=2)
+i=which.max(vecv_y0_s1)
+text(vecu[i],vecv_y0_s1[i],"y=1",col=colr2[1],pos=3,cex=.7)
+i=which.max(vecv_y1_s1)
+text(vecu[i],vecv_y1_s1[i],"y=0",col=colr2[1],pos=3,cex=.7)
+axis(1)
+segments(a,0,a,-1)
+```
+
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-5-1.png" style="display: block; margin: auto;" />
+
+# Figure 4.16
+
+``` r
+par(mfrow=c(1,2))
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="False Positive Rate",
+     ylab="True Positive Rate",col=colr2[1])
+points(b0,a0,pch=19,col=colr2[1])
+a1=1-pbeta(.6, a_y0_s1, b_y0_s1)
+b1=1-pbeta(.6, a_y1_s1, b_y1_s1)
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+points(b1,a1,pch=19,col=colr2[2])
+
+a0=1-pbeta(.6, a_y0_s0, b_y0_s0)
+b0=1-pbeta(.6, a_y1_s0, b_y1_s0)
+plot(1-pbeta(vecu, a_y1_s0, b_y1_s0),1-pbeta(vecu, a_y0_s0, b_y0_s0),type="l",lwd=1.5,xlab="False Positive Rate",
+     ylab="True Positive Rate",col=colr2[1])
+lines(1-pbeta(vecu, a_y1_s1, b_y1_s1),1-pbeta(vecu, a_y0_s1, b_y0_s1),lwd=1.5,col=colr2[2])
+x1b=qbeta(1-b0, a_y1_s1, b_y1_s1)
+a1b=1-pbeta(x1b, a_y0_s1, b_y0_s1)
+segments(b0,a0,b0,a1b,col="grey")
+y1b=qbeta(1-a0, a_y0_s1, b_y0_s1)
+b1b=1-pbeta(y1b, a_y1_s1, b_y1_s1)
+segments(b0,a0,b1b,a0,col="grey")
+points(b0,a0,pch=19,col=colr2[1])
+points(b0,a1b,pch=19,col=colr2[2])
+points(b1b,a0,pch=19,col=colr2[2])
+points(b1,a1,pch=19,col="white")
+points(b1,a1,col=colr2[2])
+```
+
+<img src="dessin-ILB-ENGLISH_files/figure-gfm/Figure-ILB-4-16-1.png" style="display: block; margin: auto;" />
